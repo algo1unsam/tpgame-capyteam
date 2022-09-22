@@ -1,14 +1,18 @@
 import wollok.game.*
 import carpincho.*
+import juego.*
 
 class Item {
-	const property image 
-	var position
 	
-	method activarPoder()
+	var position
+	var image 
+	var bonificacion
+	
+
+	method activarPoder(){}
 	
 	method chocar(){
-		capy.agarrarItem(self)
+		self.activarPoder()
 	}
 	
 	method posicionInicial() 
@@ -19,11 +23,28 @@ class Item {
 			position = self.posicionInicial()
 	}
 	
-	method iniciar()
+	method iniciar(){}
 	
-	method fin()
+	method fin(){}
+	
+	method puntos() = bonificacion 
 	
 }
+
+object naranja inherits Item (image = "naranja.png", position = 0, bonificacion =100){
+	
+	override method posicionInicial(){
+		
+	}
+	override method activarPoder(){
+		puntuacion.sumarPuntos(bonificacion)
+	}
+	
+	
+	
+}
+ 
+
 
 /*TODO: Crear items
  * Naranja de oro = 100 puntos

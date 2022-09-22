@@ -1,5 +1,6 @@
 import wollok.game.*
 import carpincho.*
+import juego.*
 
 class Obstaculo {
 	const property image 
