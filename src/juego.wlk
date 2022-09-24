@@ -9,12 +9,12 @@ object juego{
 	method configurar(){
 		game.width(12)
 		game.height(8)
-		game.title("Dino Game")
+		game.title("Capy Game")
 		game.addVisual(capy)
 		game.addVisual(naranja)
 		
-	}		keyboard.space().onPressDo{ self.jugar()}
-		
+	}		
+		keyboard.space().onPressDo{self.jugar()}
 		game.onCollideDo(dino,{ obstaculo => obstaculo.chocar()})
 		
 	} 
