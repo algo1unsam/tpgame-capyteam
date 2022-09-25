@@ -45,6 +45,7 @@ object naranja inherits Item (image = "naranja.png", position = 0, bonificacion 
 }
 
 /*TODO: Crear items
+<<<<<<< HEAD
  * Naranja de oro (limon) = 100 puntos
  * Naranja doble (arcoiris) = Duplica los puntos 
  * Naranja revividora (tomate) = Te da una vida extra
@@ -53,4 +54,13 @@ object naranja inherits Item (image = "naranja.png", position = 0, bonificacion 
  * 
  * 
  * 
+=======
+ * Naranja de oro = 100 puntos
+ * Naranja doble = Duplica los puntos al finalizar la partida
+ * Naranja revividora = Te da una vida extra
+ * Naranja random = elige uno de los poderes random!
+ * etc
+ * 
+ * 
+>>>>>>> c1a91aac70b013c942d10ba0dca036814ad38e68
  */
