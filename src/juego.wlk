@@ -7,28 +7,25 @@ import items.*
 object juego{
 
 	method configurar(){
-		game.width(12)
+		game.width(3)
 		game.height(8)
 		game.title("Capy Game")
 		game.addVisual(capy)
-		game.addVisual(naranja)
+		//game.addVisual(naranja)
+		game.addVisual(obstaculo1)
+		game.addVisual(puntuacion)
 		
-<<<<<<< HEAD
-	}		keyboard.space().onPressDo{ self.jugar()}
-		
-		game.onCollideDo(capy,{ obstaculo => obstaculo.chocar()})
-=======
-	}		
+		keyboard.left().onPressDo{capy.moverseIzquierda()}
+		keyboard.right().onPressDo{capy.moverseDerecha()}
 		keyboard.space().onPressDo{self.jugar()}
-		game.onCollideDo(dino,{ obstaculo => obstaculo.chocar()})
->>>>>>> c1a91aac70b013c942d10ba0dca036814ad38e68
+		game.onCollideDo(capy,{ obstaculo => obstaculo.chocar()})
 		
 	} 
 	
 	method iniciar(){
-		dino.iniciar()
-		reloj.iniciar()
-		cactus.iniciar()
+		capy.iniciar()
+		puntuacion.iniciar()
+		obstaculo1.iniciar()
 	}
 	
 	method jugar(){
@@ -40,8 +37,8 @@ object juego{
 		capy.morir()
 		if (not capy.estaVivo())
 			game.addVisual(gameOver)
-			obst.detener()
-			puntuacin.detener()
+			obstaculo1.fin()
+			puntuacion.fin()
 			capy.morir()
 	}
 	
@@ -72,7 +69,7 @@ object puntuacion {
 		puntos = 0
 		game.onTick(100,"puntos",{self.sumarPuntos()})
 	}
-	method detener(){
+	method fin(){
 		game.removeTickEvent("puntos")
 	}
 }

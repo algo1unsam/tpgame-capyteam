@@ -4,11 +4,12 @@ import juego.*
 
 class Item {
 
-	var position
+	var position = 0
 	var image
-	var bonificacion
+	var bonificacion 
 
 	method activarPoder() {
+		puntuacion.sumarPuntos(bonificacion)
 	}
 
 	method chocar() {
@@ -24,43 +25,35 @@ class Item {
 	}
 
 	method iniciar() {
+		position = self.posicionInicial()
+		game.onTick(300, "mover", {self.mover()})
 	}
 
 	method fin() {
 	}
 
 	method puntos() = bonificacion
+	
+	method numeroRandom() {
+		const nums = [ 1, 2, 3 ]
+		return nums.anyOne()
+	}
 
 }
 
 object naranja inherits Item (image = "naranja.png", position = 0, bonificacion = 10) {
 
-	override method posicionInicial() {
-	}
-
-	override method activarPoder() {
-		puntuacion.sumarPuntos(bonificacion)
-	}
+	
 
 }
 
 /*TODO: Crear items
-<<<<<<< HEAD
  * Naranja de oro (limon) = 100 puntos
  * Naranja doble (arcoiris) = Duplica los puntos 
  * Naranja revividora (tomate) = Te da una vida extra
- * Naranja inmunizadora () = Te hace inmune por 10 segundos
+ * Naranja random () = Te da un poder random
  *  etc
  * 
  * 
  * 
-=======
- * Naranja de oro = 100 puntos
- * Naranja doble = Duplica los puntos al finalizar la partida
- * Naranja revividora = Te da una vida extra
- * Naranja random = elige uno de los poderes random!
- * etc
- * 
- * 
->>>>>>> c1a91aac70b013c942d10ba0dca036814ad38e68
  */
