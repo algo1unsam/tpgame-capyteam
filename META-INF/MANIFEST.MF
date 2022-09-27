@@ -1,19 +1,10 @@
 Manifest-Version: 1.0
-<<<<<<< HEAD
 Automatic-Module-Name: SubwayCapys
 Bundle-ManifestVersion: 2
 Bundle-Name: SubwayCapys
 Bundle-Vendor: My Company
 Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: SubwayCapys; singleton:=true
-=======
-Automatic-Module-Name: proyectoBase
-Bundle-ManifestVersion: 2
-Bundle-Name: proyectoBase
-Bundle-Vendor: My Company
-Bundle-Version: 1.0.0.qualifier
-Bundle-SymbolicName: juego;singleton:=true
->>>>>>> 98c6671f34eed4efc0b2715cc459746e19cd76ed
 Bundle-ActivationPolicy: lazy
 Require-Bundle: com.ibm.icu,
  org.eclipse.xtext,
@@ -27,8 +18,4 @@ Require-Bundle: com.ibm.icu,
  org.eclipse.xtext.ui
 Import-Package: org.apache.log4j,
  org.apache.commons.logging
-<<<<<<< HEAD
 Bundle-RequiredExecutionEnvironment: JavaSE-11
-=======
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
->>>>>>> 98c6671f34eed4efc0b2715cc459746e19cd76ed

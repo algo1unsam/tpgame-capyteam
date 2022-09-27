@@ -1,14 +1,7 @@
 {
-<<<<<<< HEAD
   "name": "SubwayCapys",
   "version": "1.0.0",
   "wollokVersion": "3.0.0",
   "author": "matia",
-=======
-  "name": "juego",
-  "version": "1.0.0",
-  "wollokVersion": "3.0.0",
-  "author": "Name",
->>>>>>> 98c6671f34eed4efc0b2715cc459746e19cd76ed
   "license": "ISC"
 }
