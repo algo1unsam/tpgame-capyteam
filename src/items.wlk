@@ -17,7 +17,7 @@ class Item {
 		game.removeVisual(self)
 	}
 
-	method posicionInicial()
+	method posicionInicial() = game.at(game.width() - self.numeroRandom(), 8 + self.numeroRandom())
 
 	method mover() {
 		position = position.down(1)
@@ -41,11 +41,29 @@ class Item {
 
 }
 
-object naranja inherits Item (image = "naranja.png", position = 0, bonificacion = 10) {
+object naranja inherits Item (image = "naranja.png", bonificacion = 10) {}
 
-	
-
+object limon inherits Item (image = "limon.png", bonificacion = 100) {
+	//da 100 puntos
 }
+
+object tomate inherits Item (image = "tomate.png", bonificacion = 0) {
+	// te da una vida extra
+	override method activarPoder(){
+		capy.aniadirVida()
+	}
+}
+
+object arcoiris inherits Item(image = "arcoiris.png", bonificacion = 0){
+	
+	const poderesItems = [naranja, limon, tomate]
+
+	override method activarPoder(){
+		poderesItems.anyOne( {poder => poderesItems.activarPoder()} )
+	}
+}
+
+
 
 /*TODO: Crear items
  * Naranja de oro (limon) = 100 puntos

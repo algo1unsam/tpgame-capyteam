@@ -35,7 +35,6 @@ class Obstaculo {
 
 }
 
-object obstaculo1 inherits Obstaculo(image = "obstaculo.png") {
+object obstaculo1 inherits Obstaculo(image = "obstaculo.png") {}
 
-}
-
+object obstaculo2 inherits Obstaculo(image= "obstaculo.png"){}

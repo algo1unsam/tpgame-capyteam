@@ -29,5 +29,8 @@ object capy {
 		estaVivo = true
 		
 	}
+	method aniadirVida(){
+		vidasExtras += 1
+	}
 	
 }

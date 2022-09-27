@@ -13,6 +13,7 @@ object juego{
 		game.addVisual(capy)
 		//game.addVisual(naranja)
 		game.addVisual(obstaculo1)
+		game.addVisual(obstaculo2)
 		game.addVisual(puntuacion)
 		
 		keyboard.left().onPressDo{capy.moverseIzquierda()}
