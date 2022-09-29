@@ -4,17 +4,17 @@ import juego.*
 
 class Item {
 
-	var position = 0
-	var image
-	var bonificacion 
+	var property position = 0
+	const property image
+	const bonificacion 
 
 	method activarPoder() {
-		puntuacion.sumarPuntos(bonificacion)
+		puntuacion.sumarPuntos(self)
 	}
 
 	method chocar() {
 		self.activarPoder()
-		game.removeVisual(self)
+		position = self.posicionInicial()
 	}
 
 	method posicionInicial() = game.at(game.width() - self.numeroRandom(), 8 + self.numeroRandom())
@@ -26,24 +26,33 @@ class Item {
 
 	method iniciar() {
 		position = self.posicionInicial()
-		game.onTick(300, "mover", {self.mover()})
+		game.onTick(300, "mover" + self, {self.mover()})
 	}
 
 	method fin() {
+		game.removeTickEvent("mover" + self)
 	}
 
 	method puntos() = bonificacion
 	
 	method numeroRandom() {
-		const nums = [ 1, 2, 3 ]
+		const nums = [ 1, 3, 5]
 		return nums.anyOne()
 	}
 
 }
 
-object naranja inherits Item (image = "naranja.png", bonificacion = 10) {}
+object naranja inherits Item (image = "naranja.png", bonificacion = 10) {
+	override method activarPoder() {
+		puntuacion.sumarPuntos(self)
+	}
+}
 
 object limon inherits Item (image = "limon.png", bonificacion = 100) {
+	 
+	 override method activarPoder() {
+		puntuacion.sumarPuntos(self)
+	}
 	//da 100 puntos
 }
 
@@ -52,15 +61,21 @@ object tomate inherits Item (image = "tomate.png", bonificacion = 0) {
 	override method activarPoder(){
 		capy.aniadirVida()
 	}
+	override method posicionInicial() = game.at(game.width() - self.numeroRandom(), 30 + self.numeroRandom())
 }
 
 object arcoiris inherits Item(image = "arcoiris.png", bonificacion = 0){
 	
-	const poderesItems = [naranja, limon, tomate]
+	const items = [naranja, limon, tomate]
 
 	override method activarPoder(){
-		poderesItems.anyOne( {poder => poderesItems.activarPoder()} )
+		puntuacion.sumarPuntos(self.elegirItemACopiar())
 	}
+	method elegirItemACopiar(){
+		return 	items.anyOne()
+		
+	}
+	override method posicionInicial() = game.at(game.width() - self.numeroRandom(), 20 + self.numeroRandom())
 }
 
 

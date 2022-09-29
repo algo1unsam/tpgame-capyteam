@@ -7,41 +7,61 @@ import items.*
 object juego{
 
 	method configurar(){
-		game.width(3)
+		game.width(5)
 		game.height(8)
 		game.title("Capy Game")
-		game.addVisual(capy)
-		//game.addVisual(naranja)
+		game.boardGround("fondo.png")
+		game.addVisualCharacter(capy)
 		game.addVisual(obstaculo1)
+		game.addVisual(tomate)
 		game.addVisual(obstaculo2)
+		game.addVisual(naranja)
+		game.addVisual(limon)
+		game.addVisual(arcoiris)
 		game.addVisual(puntuacion)
+		game.addVisual(vidas)
 		
 		keyboard.left().onPressDo{capy.moverseIzquierda()}
 		keyboard.right().onPressDo{capy.moverseDerecha()}
-		keyboard.space().onPressDo{self.jugar()}
 		game.onCollideDo(capy,{ obstaculo => obstaculo.chocar()})
 		
 	} 
 	
 	method iniciar(){
+		self.configurar()
 		capy.iniciar()
 		puntuacion.iniciar()
-		obstaculo1.iniciar()
+		obstaculo1.iniciar()		
+		obstaculo2.iniciar()
+		tomate.iniciar()
+		naranja.iniciar()
+		limon.iniciar()
+		arcoiris.iniciar()
 	}
 	
 	method jugar(){
-		game.removeVisual(gameOver)
+		game.clear()
 		self.iniciar()
 	}
 	
 	method terminar(){	
+		game.addVisual(gameOver)
+		obstaculo1.fin()
+		puntuacion.fin()
+		obstaculo2.fin()
+		tomate.fin()
+		naranja.fin()
+		limon.fin()
+		arcoiris.fin()
 		capy.morir()
-		if (not capy.estaVivo())
-			game.addVisual(gameOver)
-			obstaculo1.fin()
-			puntuacion.fin()
-			capy.morir()
+		keyboard.space().onPressDo{self.jugar()}
 	}
+	
+}
+
+object fondo {
+	
+	method image() = "fondo.png"
 	
 }
 
@@ -68,9 +88,14 @@ object puntuacion {
 	}
 	method iniciar(){
 		puntos = 0
-		game.onTick(100,"puntos",{self.sumarPuntos()})
+		game.onTick(600,"puntos",{self.sumarPuntos()})
 	}
 	method fin(){
 		game.removeTickEvent("puntos")
 	}
+}
+object vidas {
+	
+	method text() = (capy.vidasExtras() + 1).toString()
+	method position() = game.at(3, game.height()-1)
 }

@@ -17,10 +17,7 @@ object capy {
 	}
 	
 	method morir(){
-		if (vidasExtras > 0){
-			vidasExtras -= 1
-		}
-		else {
+		if (vidasExtras <= 0){
 			estaVivo = false
 		}
 	}
@@ -31,6 +28,10 @@ object capy {
 	}
 	method aniadirVida(){
 		vidasExtras += 1
+	}
+	method pierdeUnaVida(){
+		vidasExtras -= 1
+		self.morir()
 	}
 	
 }

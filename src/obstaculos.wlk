@@ -9,7 +9,11 @@ class Obstaculo {
 	var property position = 0
 
 	method chocar() {
-		juego.terminar()
+		capy.pierdeUnaVida()
+		position = self.posicionInicial()
+		if (capy.estaVivo() == false)
+			juego.terminar()
+			
 	}
 
 	method posicionInicial() = game.at(game.width() - self.numeroRandom(), 8 + self.numeroRandom())
@@ -29,12 +33,12 @@ class Obstaculo {
 	}
 
 	method numeroRandom() {
-		const nums = [ 1, 2, 3 ]
+		const nums = [ 1, 3, 5]
 		return nums.anyOne()
 	}
 
 }
 
-object obstaculo1 inherits Obstaculo(image = "obstaculo.png") {}
+object obstaculo1 inherits Obstaculo(image = "tronco.png") {}
 
-object obstaculo2 inherits Obstaculo(image= "obstaculo.png"){}
+object obstaculo2 inherits Obstaculo(image= "roca.png"){}
