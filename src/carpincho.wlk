@@ -17,7 +17,7 @@ object capy {
 	}
 
 	method moverseDerecha() {
-		position = position.right()
+		position = position.right(1)
 		self.musica().play()
 	}
 
