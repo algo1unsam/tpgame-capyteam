@@ -1,14 +1,14 @@
 import juego.*
 import wollok.game.*
 import carpincho.*
-import obstaculos.*
-import items.*
+import objectos.*
 
 
 program SubwayCapys{
 	
 	juego.iniciar()
+	
 	game.start()
-	fondo.musica().play()
+	
 	
 }

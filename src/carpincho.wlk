@@ -20,11 +20,13 @@ object capy {
 	method morir(){
 		if (vidasExtras <= 0){
 			estaVivo = false
+			self.fin()
 		}
 	}
 	
 	method iniciar(){
 		estaVivo = true
+		vidasExtras = 3
 		
 		
 	}
@@ -34,6 +36,10 @@ object capy {
 	method pierdeUnaVida(){
 		vidasExtras -= 1
 		self.morir()
+	}
+	
+	method fin() {
+		game.removeVisual(self)
 	}
 	
 }

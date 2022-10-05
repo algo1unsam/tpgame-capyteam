@@ -1,8 +1,6 @@
 import wollok.game.*
 import carpincho.*
-import obstaculos.*
-import items.*
-
+import objectos.*
 
 object juego{
 	
@@ -20,6 +18,7 @@ object juego{
 		game.addVisual(naranja)
 		game.addVisual(limon)
 		game.addVisual(arcoiris)
+		game.addVisual(obstaculo3)
 		game.addVisual(puntuacion)
 		game.addVisual(vidas)
 		
@@ -28,7 +27,7 @@ object juego{
 		keyboard.left().onPressDo{capy.moverseIzquierda()}
 		keyboard.right().onPressDo{capy.moverseDerecha()}
 		game.onCollideDo(capy,{ obstaculo => obstaculo.chocar()})
-		
+		keyboard.space().onPressDo{self.jugar()}
 	} 
 	
 	method iniciar(){
@@ -37,31 +36,36 @@ object juego{
 		puntuacion.iniciar()
 		obstaculo1.iniciar()		
 		obstaculo2.iniciar()
+		obstaculo3.iniciar()
 		tomate.iniciar()
 		naranja.iniciar()
 		limon.iniciar()
 		arcoiris.iniciar()
 		
+		
 		}
 	
 	method jugar(){
 		game.clear()
+		
 		self.iniciar()
 		
 	}
 	
 	method terminar(){	
 		game.addVisual(gameOver)
-		gameOver.musica().play()
 		obstaculo1.fin()
 		puntuacion.fin()
 		obstaculo2.fin()
+		obstaculo3.fin()
 		tomate.fin()
 		naranja.fin()
 		limon.fin()
 		arcoiris.fin()
 		capy.morir()
-		keyboard.space().onPressDo{self.jugar()}
+		gameOver.musica().play()
+		
+		
 	}
 	
 }
@@ -87,18 +91,20 @@ object puntuacion {
 	
 	method text() = puntos.toString()
 	method position() = game.at(1, game.height()-1)
-	method musica() = game.sound("puntos.mp3")
+	
 	
 	method sumarPuntos() {
 		puntos = puntos +1
+		
 	}
 	method sumarPuntos(item) {
 		puntos = puntos + item.puntos()
-		self.musica().play()
+		
 	}
 	method iniciar(){
 		puntos = 0
 		game.onTick(600,"puntos",{self.sumarPuntos()})
+		
 	}
 	method fin(){
 		game.removeTickEvent("puntos")
@@ -106,6 +112,9 @@ object puntuacion {
 }
 object vidas {
 	
-	method text() = (capy.vidasExtras() + 1).toString()
+	method text() = (capy.vidasExtras()).toString()
 	method position() = game.at(3, game.height()-1)
+	
+	
+	
 }
