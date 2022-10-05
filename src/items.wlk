@@ -42,13 +42,13 @@ class Item {
 
 }
 
-object naranja inherits Item (image = "naranja.png", bonificacion = 10) {
+object naranja inherits Item (image = "naranja2.png", bonificacion = 10) {
 	override method activarPoder() {
 		puntuacion.sumarPuntos(self)
 	}
 }
 
-object limon inherits Item (image = "limon.png", bonificacion = 100) {
+object limon inherits Item (image = "limon2.png", bonificacion = 100) {
 	 
 	 override method activarPoder() {
 		puntuacion.sumarPuntos(self)
@@ -56,7 +56,7 @@ object limon inherits Item (image = "limon.png", bonificacion = 100) {
 	//da 100 puntos
 }
 
-object tomate inherits Item (image = "tomate.png", bonificacion = 0) {
+object tomate inherits Item (image = "tomate2.png", bonificacion = 0) {
 	// te da una vida extra
 	override method activarPoder(){
 		capy.aniadirVida()
@@ -64,7 +64,7 @@ object tomate inherits Item (image = "tomate.png", bonificacion = 0) {
 	override method posicionInicial() = game.at(game.width() - self.numeroRandom(), 30 + self.numeroRandom())
 }
 
-object arcoiris inherits Item(image = "arcoiris.png", bonificacion = 0){
+object arcoiris inherits Item(image = "arcoiris2.png", bonificacion = 0){
 	
 	const items = [naranja, limon, tomate]
 

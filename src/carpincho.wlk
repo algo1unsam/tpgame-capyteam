@@ -1,4 +1,5 @@
 import wollok.game.*
+import juego.*
 
 object capy {
 	var property estaVivo = true
@@ -6,7 +7,7 @@ object capy {
 	var property position = game.at(2,1)
 	
 	
-	method image() = "capy.png"
+	method image() = "capy3.png"
 	
 	method moverseIzquierda(){
 		position = position.left(1)
@@ -24,6 +25,7 @@ object capy {
 	
 	method iniciar(){
 		estaVivo = true
+		
 		
 	}
 	method aniadirVida(){

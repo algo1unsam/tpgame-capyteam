@@ -9,5 +9,6 @@ program SubwayCapys{
 	
 	juego.iniciar()
 	game.start()
+	fondo.musica().play()
 	
 }

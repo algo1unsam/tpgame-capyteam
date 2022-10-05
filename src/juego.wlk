@@ -5,12 +5,14 @@ import items.*
 
 
 object juego{
+	
+
 
 	method configurar(){
 		game.width(5)
 		game.height(8)
 		game.title("Capy Game")
-		game.boardGround("fondo.png")
+		game.boardGround("rio.png")
 		game.addVisualCharacter(capy)
 		game.addVisual(obstaculo1)
 		game.addVisual(tomate)
@@ -20,6 +22,8 @@ object juego{
 		game.addVisual(arcoiris)
 		game.addVisual(puntuacion)
 		game.addVisual(vidas)
+		
+		
 		
 		keyboard.left().onPressDo{capy.moverseIzquierda()}
 		keyboard.right().onPressDo{capy.moverseDerecha()}
@@ -37,15 +41,18 @@ object juego{
 		naranja.iniciar()
 		limon.iniciar()
 		arcoiris.iniciar()
-	}
+		
+		}
 	
 	method jugar(){
 		game.clear()
 		self.iniciar()
+		
 	}
 	
 	method terminar(){	
 		game.addVisual(gameOver)
+		gameOver.musica().play()
 		obstaculo1.fin()
 		puntuacion.fin()
 		obstaculo2.fin()
@@ -61,14 +68,15 @@ object juego{
 
 object fondo {
 	
-	method image() = "fondo.png"
+	method image() = "rio.png"
+	method musica() = game.sound("musica4.mp3")
 	
 }
 
 object gameOver {
 	method position() = game.center()
 	method text() = "GAME OVER"
-	
+	method musica() = game.sound("gameover.mp3")
 
 }
 
@@ -79,12 +87,14 @@ object puntuacion {
 	
 	method text() = puntos.toString()
 	method position() = game.at(1, game.height()-1)
+	method musica() = game.sound("puntos.mp3")
 	
 	method sumarPuntos() {
 		puntos = puntos +1
 	}
 	method sumarPuntos(item) {
 		puntos = puntos + item.puntos()
+		self.musica().play()
 	}
 	method iniciar(){
 		puntos = 0
