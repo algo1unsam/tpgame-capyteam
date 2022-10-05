@@ -2,57 +2,59 @@ import wollok.game.*
 import juego.*
 
 object capy {
+
 	var property estaVivo = true
 	var property vidasExtras = 0
-	var property position = game.at(2,1)
-	
+	var property position = game.at(2, 1)
+
 	method musica() = game.sound("cambiocarril.mp3")
-	
+
 	method image() = "capy3.png"
-	
-	method moverseIzquierda(){
+
+	method moverseIzquierda() {
 		position = position.left(1)
 		self.musica().play()
 	}
-	
-	method moverseDerecha(){
-		position = position.right(1)
+
+	method moverseDerecha() {
+		position = position.right()
 		self.musica().play()
 	}
-	
-	method moverseArriba(){
+
+	method moverseArriba() {
 		position = position.up(1)
 		self.musica().play()
 	}
-	
-	method moverseAbajo(){
+
+	method moverseAbajo() {
 		position = position.down(1)
 		self.musica().play()
 	}
-	
-	method morir(){
-		if (vidasExtras <= 0){
+
+	method morir() {
+		if (vidasExtras <= 0) {
 			estaVivo = false
 			self.fin()
 		}
 	}
-	
-	method iniciar(){
+
+	method iniciar() {
 		estaVivo = true
 		vidasExtras = 3
-		
-		
 	}
-	method aniadirVida(){
+
+	method aniadirVida() {
 		vidasExtras += 1
 	}
-	method pierdeUnaVida(){
+
+	method pierdeUnaVida() {
 		vidasExtras -= 1
 		self.morir()
 	}
-	
+
 	method fin() {
 		game.removeVisual(self)
 	}
-	
+
 }
+

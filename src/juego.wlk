@@ -2,18 +2,16 @@ import wollok.game.*
 import carpincho.*
 import objectos.*
 
-object juego{
-	
+object juego {
 
-
-	method configurar(){
+	method configurar() {
 		game.width(5)
 		game.height(8)
 		game.title("Capy Game")
 		game.boardGround("rio.png")
 		game.addVisualCharacter(capy)
 		game.showAttributes(capy)
-		//game.addVisual(capy)
+			// game.addVisual(capy)
 		game.addVisual(obstaculo1)
 		game.addVisual(tomate)
 		game.addVisual(obstaculo2)
@@ -23,41 +21,35 @@ object juego{
 		game.addVisual(obstaculo3)
 		game.addVisual(puntuacion)
 		game.addVisual(vidas)
-		
-		
-		//keyboard.up().onPressDo{capy.moverseArriba()}
-		//keyboard.down().onPressDo{capy.moverseAbajo()}
-		keyboard.left().onPressDo{capy.moverseIzquierda()}
-		keyboard.right().onPressDo{capy.moverseDerecha()}
-		game.onCollideDo(capy,{ obstaculo => obstaculo.chocar()})
-		keyboard.space().onPressDo{self.jugar()}
-	} 
-	
-	method iniciar(){
+			// keyboard.up().onPressDo{capy.moverseArriba()}
+			// keyboard.down().onPressDo{capy.moverseAbajo()}
+		keyboard.left().onPressDo{ capy.moverseIzquierda()}
+		keyboard.right().onPressDo{ capy.moverseDerecha()}
+		game.onCollideDo(capy, { obstaculo => obstaculo.chocar()})
+		keyboard.space().onPressDo{ self.jugar()}
+	}
+
+	method iniciar() {
 		self.configurar()
 		capy.iniciar()
 		puntuacion.iniciar()
-		obstaculo1.iniciar()		
+		obstaculo1.iniciar()
 		obstaculo2.iniciar()
 		obstaculo3.iniciar()
 		tomate.iniciar()
 		naranja.iniciar()
 		limon.iniciar()
 		arcoiris.iniciar()
-		game.schedule(100, {fondo.musica().play()})
+		game.schedule(100, { fondo.musica().play()})
 		fondo.musica().shouldLoop(true)
-		
-		}
-	
-	method jugar(){
-		game.clear()
-		
-		self.iniciar()
-		
 	}
-	
-	method terminar(){	
-		
+
+	method jugar() {
+		game.clear()
+		self.iniciar()
+	}
+
+	method terminar() {
 		game.addVisual(gameOver)
 		obstaculo1.fin()
 		puntuacion.fin()
@@ -68,60 +60,63 @@ object juego{
 		limon.fin()
 		arcoiris.fin()
 		capy.morir()
-		game.schedule(100, {fondo.musica().stop()})
 		gameOver.musica().play()
-		
-		
 	}
-	
+
 }
 
 object fondo {
-	
+
 	const sonido = game.sound("musica4.mp3")
+
 	method image() = "rio.png"
+
 	method musica() = sonido
-	
+
 }
 
 object gameOver {
+
 	method position() = game.center()
+
 	method text() = "GAME OVER"
+
 	method musica() = game.sound("gameover.mp3")
 
 }
 
-
 object puntuacion {
-	
+
 	var puntos = 0
-	
+
 	method text() = puntos.toString()
-	method position() = game.at(1, game.height()-1)
-	
-	
+
+	method position() = game.at(1, game.height() - 1)
+
 	method sumarPuntos() {
-		puntos = puntos +1
-		
+		puntos = puntos + 1
 	}
+
 	method sumarPuntos(item) {
 		puntos = puntos + item.puntos()
-		
 	}
-	method iniciar(){
+
+	method iniciar() {
 		puntos = 0
-		game.onTick(600,"puntos",{self.sumarPuntos()})
-		
+		game.onTick(600, "puntos", { self.sumarPuntos()})
 	}
-	method fin(){
+
+	method fin() {
 		game.removeTickEvent("puntos")
 	}
+
 }
+
 object vidas {
-	
+
 	method text() = (capy.vidasExtras()).toString()
-	method position() = game.at(3, game.height()-1)
-	
-	
-	
+
+	method position() = game.at(3, game.height() - 1)
+
 }
+
