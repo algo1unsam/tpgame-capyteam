@@ -20,6 +20,16 @@ object capy {
 		self.musica().play()
 	}
 	
+	method moverseArriba(){
+		position = position.up(1)
+		self.musica().play()
+	}
+	
+	method moverseAbajo(){
+		position = position.down(1)
+		self.musica().play()
+	}
+	
 	method morir(){
 		if (vidasExtras <= 0){
 			estaVivo = false

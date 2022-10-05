@@ -12,6 +12,8 @@ object juego{
 		game.title("Capy Game")
 		game.boardGround("rio.png")
 		game.addVisualCharacter(capy)
+		game.showAttributes(capy)
+		//game.addVisual(capy)
 		game.addVisual(obstaculo1)
 		game.addVisual(tomate)
 		game.addVisual(obstaculo2)
@@ -23,7 +25,8 @@ object juego{
 		game.addVisual(vidas)
 		
 		
-		
+		//keyboard.up().onPressDo{capy.moverseArriba()}
+		//keyboard.down().onPressDo{capy.moverseAbajo()}
 		keyboard.left().onPressDo{capy.moverseIzquierda()}
 		keyboard.right().onPressDo{capy.moverseDerecha()}
 		game.onCollideDo(capy,{ obstaculo => obstaculo.chocar()})
@@ -41,7 +44,8 @@ object juego{
 		naranja.iniciar()
 		limon.iniciar()
 		arcoiris.iniciar()
-		
+		game.schedule(100, {fondo.musica().play()})
+		fondo.musica().shouldLoop(true)
 		
 		}
 	
@@ -53,6 +57,7 @@ object juego{
 	}
 	
 	method terminar(){	
+		
 		game.addVisual(gameOver)
 		obstaculo1.fin()
 		puntuacion.fin()
@@ -63,6 +68,7 @@ object juego{
 		limon.fin()
 		arcoiris.fin()
 		capy.morir()
+		game.schedule(100, {fondo.musica().stop()})
 		gameOver.musica().play()
 		
 		
@@ -72,8 +78,9 @@ object juego{
 
 object fondo {
 	
+	const sonido = game.sound("musica4.mp3")
 	method image() = "rio.png"
-	method musica() = game.sound("musica4.mp3")
+	method musica() = sonido
 	
 }
 

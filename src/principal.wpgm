@@ -7,8 +7,6 @@ import objectos.*
 program SubwayCapys{
 	
 	juego.iniciar()
-	
 	game.start()
-	
 	
 }
