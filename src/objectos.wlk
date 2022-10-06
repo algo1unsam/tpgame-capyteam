@@ -89,7 +89,6 @@ class Item inherits Cosas {
 
 	method musica() = game.sound("puntos.mp3")
 
-	method musicaVida() = game.sound("vidaextra.mp3")
 
 	method activarPoder() {
 		puntuacion.sumarPuntos(self)
@@ -139,7 +138,7 @@ object tomate inherits Item (image = "tomate2.png", bonificacion = 0) {
 
 	override method activarPoder() {
 		capy.aniadirVida()
-		self.musicaVida().play()
+		self.musica().play()
 	}
 
 	override method posicionInicial() = game.at(game.width() - self.numeroRandom(), 30 + self.numeroRandom())
