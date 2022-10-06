@@ -55,6 +55,7 @@ object capy {
 
 	method fin() {
 		game.removeVisual(self)
+		juego.perder()
 	}
 
 }
