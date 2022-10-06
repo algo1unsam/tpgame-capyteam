@@ -26,14 +26,19 @@ object juego {
 		keyboard.left().onPressDo{ capy.moverseIzquierda()}
 		keyboard.right().onPressDo{ capy.moverseDerecha()}
 		game.onCollideDo(capy, { obstaculo => obstaculo.chocar()})
-		keyboard.space().onPressDo{ self.jugar()}
-		game.onCollideDo(naranja, {objeto => naranja.mover()})
-		game.onCollideDo(tomate, {objeto => tomate.mover()})
-		game.onCollideDo(limon, {objeto => limon.mover()})
-		game.onCollideDo(arcoiris, {objeto => arcoiris.mover()})
-		game.onCollideDo(obstaculo1, {objeto => obstaculo1.mover()})
-		game.onCollideDo(obstaculo2, {objeto => obstaculo2.mover()})
-		game.onCollideDo(obstaculo3, {objeto => obstaculo3.mover()})
+		keyboard.space().onPressDo{ self.reiniciar()}
+		game.onCollideDo(naranja, { objeto => naranja.mover()})
+		game.onCollideDo(tomate, { objeto => tomate.mover()})
+		game.onCollideDo(limon, { objeto => limon.mover()})
+		game.onCollideDo(arcoiris, { objeto => arcoiris.mover()})
+		game.onCollideDo(obstaculo1, { objeto => obstaculo1.mover()})
+		game.onCollideDo(obstaculo2, { objeto => obstaculo2.mover()})
+		game.onCollideDo(obstaculo3, { objeto => obstaculo3.mover()})
+	}
+
+	method reiniciar() {
+		self.terminar()
+		self.jugar()
 	}
 
 	method iniciar() {
@@ -47,8 +52,8 @@ object juego {
 		naranja.iniciar()
 		limon.iniciar()
 		arcoiris.iniciar()
-		game.schedule(100, {fondo.musica().play()})
-		//fondo.musica().play().shouldLoop(true)
+		game.schedule(100, { fondo.musica().play()})
+			// fondo.musica().play().shouldLoop(true)
 		fondo.musica().shouldLoop(true)
 	}
 
@@ -57,8 +62,13 @@ object juego {
 		self.iniciar()
 	}
 
-	method terminar() {
+	method perder() {
+		self.terminar()
 		game.addVisual(gameOver)
+		gameOver.musica().play()
+	}
+
+	method terminar() {
 		obstaculo1.fin()
 		puntuacion.fin()
 		obstaculo2.fin()
@@ -67,19 +77,21 @@ object juego {
 		naranja.fin()
 		limon.fin()
 		arcoiris.fin()
-		capy.morir()
 		fondo.musica().stop()
-		gameOver.musica().play()
-		
+		fondo.resetMusica()
 	}
 
 }
 
 object fondo {
 
-	const sonido = game.sound("musica4.mp3")
+	var sonido = game.sound("musica4.mp3")
 
 	method image() = "rio.png"
+
+	method resetMusica() {
+		sonido = game.sound("musica4.mp3")
+	}
 
 	method musica() = sonido
 
@@ -119,9 +131,8 @@ object puntuacion {
 	method fin() {
 		game.removeTickEvent("puntos")
 	}
-	
-	method subirNivel(){
-		
+
+	method subirNivel() {
 	}
 
 }
