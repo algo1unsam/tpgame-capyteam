@@ -7,18 +7,26 @@ class Obstaculo {
 
 	const property image
 	var property position = 0
+	
+    method musica() = game.sound("golpe.mp3")
 
 	method chocar() {
 		capy.pierdeUnaVida()
 		position = self.posicionInicial()
+		self.musica().play()
 		if (capy.estaVivo() == false)
 			juego.terminar()
+			
 			
 	}
 
 	method posicionInicial() = game.at(game.width() - self.numeroRandom(), 8 + self.numeroRandom())
 
+
+		 
+	
 	method mover() {
+	
 		position = position.down(1)
 		if (position.y() == -1) position = self.posicionInicial()
 	}
@@ -39,6 +47,8 @@ class Obstaculo {
 
 }
 
-object obstaculo1 inherits Obstaculo(image = "tronco.png") {}
+object obstaculo1 inherits Obstaculo(image = "tronco2.png") {}
 
-object obstaculo2 inherits Obstaculo(image= "roca.png"){}
+object obstaculo2 inherits Obstaculo(image= "roca2.png"){}
+
+object obstaculo3 inherits Obstaculo(image= "barril.png"){}
