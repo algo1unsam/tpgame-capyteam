@@ -57,7 +57,7 @@ class Item {
 
 	method mover() {
 		position = position.down(1)
-		if (position.y() == -1) position = self.comprobarPosicion()
+		if (position.y() == -1) position = self.posicionInicial()
 	}
 
 	method iniciar() {

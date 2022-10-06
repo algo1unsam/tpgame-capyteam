@@ -27,6 +27,13 @@ object juego {
 		keyboard.right().onPressDo{ capy.moverseDerecha()}
 		game.onCollideDo(capy, { obstaculo => obstaculo.chocar()})
 		keyboard.space().onPressDo{ self.jugar()}
+		game.onCollideDo(naranja, {objeto => naranja.mover()})
+		game.onCollideDo(tomate, {objeto => tomate.mover()})
+		game.onCollideDo(limon, {objeto => limon.mover()})
+		game.onCollideDo(arcoiris, {objeto => arcoiris.mover()})
+		game.onCollideDo(obstaculo1, {objeto => obstaculo1.mover()})
+		game.onCollideDo(obstaculo2, {objeto => obstaculo2.mover()})
+		game.onCollideDo(obstaculo3, {objeto => obstaculo3.mover()})
 	}
 
 	method iniciar() {
@@ -40,7 +47,8 @@ object juego {
 		naranja.iniciar()
 		limon.iniciar()
 		arcoiris.iniciar()
-		game.schedule(100, { fondo.musica().play()})
+		game.schedule(100, {fondo.musica().play()})
+		//fondo.musica().play().shouldLoop(true)
 		fondo.musica().shouldLoop(true)
 	}
 
@@ -60,7 +68,9 @@ object juego {
 		limon.fin()
 		arcoiris.fin()
 		capy.morir()
+		fondo.musica().stop()
 		gameOver.musica().play()
+		
 	}
 
 }
@@ -108,6 +118,10 @@ object puntuacion {
 
 	method fin() {
 		game.removeTickEvent("puntos")
+	}
+	
+	method subirNivel(){
+		
 	}
 
 }

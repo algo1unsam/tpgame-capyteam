@@ -13,33 +13,9 @@ class Cosas {
 
 	method posicionInicial() = game.at(game.width() - self.numeroRandom(), 8 + self.numeroRandom())
 
-	method comprobarPosicion() {
-		if (self.posicionInicial() == naranja.posicionInicial()) {
-			return game.at(game.width() - self.numeroRandom(), 12 + self.numeroRandom())
-		}
-		if (self.posicionInicial() == limon.posicionInicial()) {
-			return game.at(game.width() - self.numeroRandom(), 12 + self.numeroRandom())
-		}
-		if (self.posicionInicial() == tomate.posicionInicial()) {
-			return game.at(game.width() - self.numeroRandom(), 12 + self.numeroRandom())
-		}
-		if (self.posicionInicial() == arcoiris.posicionInicial()) {
-			return game.at(game.width() - self.numeroRandom(), 12 + self.numeroRandom())
-		}
-		if (self.posicionInicial() == obstaculo1.posicionInicial()) {
-			return game.at(game.width() - self.numeroRandom(), 12 + self.numeroRandom())
-		}
-		if (self.posicionInicial() == obstaculo2.posicionInicial()) {
-			return game.at(game.width() - self.numeroRandom(), 12 + self.numeroRandom())
-		}
-		if (self.posicionInicial() == obstaculo3.posicionInicial()) {
-			return game.at(game.width() - self.numeroRandom(), 12 + self.numeroRandom())
-		} else (return self.posicionInicial())
-	}
-
 	method mover() {
 		position = position.down(1)
-		if (position.y() == -1) position = self.comprobarPosicion()
+		if (position.y() == -1) position = self.posicionInicial()
 	}
 
 	method numeroRandom() {
@@ -50,7 +26,7 @@ class Cosas {
 }
 
 class Obstaculo inherits Cosas {
-
+	
 	method musica() = game.sound("golpe.mp3")
 
 	override method chocar() {
