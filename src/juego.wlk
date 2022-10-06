@@ -9,7 +9,7 @@ object juego {
 		game.height(8)
 		game.title("Capy Game")
 		game.boardGround("rio.png")
-		game.addVisualCharacter(capy)
+		game.addVisual(capy)
 		game.showAttributes(capy)
 			// game.addVisual(capy)
 		game.addVisual(obstaculo1)
@@ -21,12 +21,14 @@ object juego {
 		game.addVisual(obstaculo3)
 		game.addVisual(puntuacion)
 		game.addVisual(vidas)
-			// keyboard.up().onPressDo{capy.moverseArriba()}
-			// keyboard.down().onPressDo{capy.moverseAbajo()}
+		
+		keyboard.space().onPressDo{ self.reiniciar()}
+	    keyboard.up().onPressDo{capy.moverseArriba()}
+	    keyboard.down().onPressDo{capy.moverseAbajo()}
 		keyboard.left().onPressDo{ capy.moverseIzquierda()}
 		keyboard.right().onPressDo{ capy.moverseDerecha()}
+		
 		game.onCollideDo(capy, { obstaculo => obstaculo.chocar()})
-		keyboard.space().onPressDo{ self.reiniciar()}
 		game.onCollideDo(naranja, { objeto => naranja.mover()})
 		game.onCollideDo(tomate, { objeto => tomate.mover()})
 		game.onCollideDo(limon, { objeto => limon.mover()})
@@ -37,7 +39,7 @@ object juego {
 	}
 
 	method reiniciar() {
-		self.terminar()
+		fondo.resetMusica()
 		self.jugar()
 	}
 
@@ -63,9 +65,9 @@ object juego {
 	}
 
 	method perder() {
-		self.terminar()
 		game.addVisual(gameOver)
 		gameOver.musica().play()
+		self.terminar()
 	}
 
 	method terminar() {
@@ -109,7 +111,8 @@ object gameOver {
 
 object puntuacion {
 
-	var puntos = 0
+	var property puntos = 0
+	var property guardar = 1000
 
 	method text() = puntos.toString()
 
@@ -117,6 +120,7 @@ object puntuacion {
 
 	method sumarPuntos() {
 		puntos = puntos + 1
+		self.subirNivel()
 	}
 
 	method sumarPuntos(item) {
@@ -133,9 +137,18 @@ object puntuacion {
 	}
 
 	method subirNivel() {
+		const visuales = game.allVisuals().copy()
+		visuales.remove(capy)
+		visuales.remove(self)
+		visuales.remove(vidas)
+		if (self.puntos() > guardar ){
+			guardar = guardar + 1000
+			visuales.forEach({visual => visual.subirVelocidad()})
+			}
+		}
 	}
 
-}
+
 
 object vidas {
 

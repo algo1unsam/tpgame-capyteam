@@ -15,16 +15,13 @@ class Obstaculo {
 		position = self.posicionInicial()
 		self.musica().play()
 		if (capy.estaVivo() == false)
-			juego.terminar()
-			
-			
+			juego.perder()
+					
 	}
 
 	method posicionInicial() = game.at(game.width() - self.numeroRandom(), 8 + self.numeroRandom())
 
 
-		 
-	
 	method mover() {
 	
 		position = position.down(1)

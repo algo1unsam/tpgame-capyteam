@@ -4,10 +4,12 @@ import juego.*
 
 class Cosas {
 
+	var property velocidad = 300
 	const property image
 	var property position = 0
 	const property lista = [ naranja, limon, tomate, arcoiris, obstaculo1, obstaculo2, obstaculo3 ]
-
+	
+	
 	method chocar() {
 	}
 
@@ -22,6 +24,10 @@ class Cosas {
 		const nums = [ 1, 3, 5 ]
 		return nums.anyOne()
 	}
+	
+	method subirVelocidad(){
+		velocidad = velocidad*(1/3)
+	}
 
 }
 
@@ -33,12 +39,12 @@ class Obstaculo inherits Cosas {
 		capy.pierdeUnaVida()
 		position = self.posicionInicial()
 		self.musica().play()
-		if (capy.estaVivo() == false) juego.terminar()
+		if (capy.estaVivo() == false) juego.perder()
 	}
 
 	method iniciar() {
 		position = self.posicionInicial()
-		game.onTick(300, "moverObs" + self, { self.mover()})
+		game.onTick(velocidad, "moverObs" + self, { self.mover()})
 	}
 
 	method fin() {
@@ -77,7 +83,7 @@ class Item inherits Cosas {
 
 	method iniciar() {
 		position = self.posicionInicial()
-		game.onTick(300, "mover" + self, { self.mover()})
+		game.onTick(velocidad, "mover" + self, { self.mover()})
 	}
 
 	method fin() {

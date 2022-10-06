@@ -12,21 +12,26 @@ object capy {
 	method image() = "capy3.png"
 
 	method moverseIzquierda() {
-		position = position.left(1)
+		if (position.x() > 0 )
+		position = position.left(2)
 		self.musica().play()
+		
 	}
 
 	method moverseDerecha() {
-		position = position.right(1)
+		if (position.x() < 4)
+		position = position.right(2)
 		self.musica().play()
 	}
 
 	method moverseArriba() {
+		if (position.y() < 7)
 		position = position.up(1)
 		self.musica().play()
 	}
 
 	method moverseAbajo() {
+		if (position.y() > 0)
 		position = position.down(1)
 		self.musica().play()
 	}
@@ -55,8 +60,10 @@ object capy {
 
 	method fin() {
 		game.removeVisual(self)
-		juego.perder()
+	
 	}
+	
+	
 
 }
 
