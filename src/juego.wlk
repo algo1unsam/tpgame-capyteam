@@ -3,7 +3,8 @@ import carpincho.*
 import objectos.*
 
 object juego {
-
+	const items = [tomate,naranja,limon,arcoiris,obstaculo1,obstaculo2,obstaculo3]
+	
 	method configurar() {
 		game.width(5)
 		game.height(8)
@@ -11,7 +12,6 @@ object juego {
 		game.boardGround("rio.png")
 		game.addVisual(capy)
 		game.showAttributes(capy)
-			// game.addVisual(capy)
 		game.addVisual(obstaculo1)
 		game.addVisual(tomate)
 		game.addVisual(obstaculo2)
@@ -21,6 +21,7 @@ object juego {
 		game.addVisual(obstaculo3)
 		game.addVisual(puntuacion)
 		game.addVisual(vidas)
+		
 		
 		keyboard.space().onPressDo{ self.reiniciar()}
 	    keyboard.up().onPressDo{capy.moverseArriba()}
@@ -46,20 +47,16 @@ object juego {
 	method iniciar() {
 		self.configurar()
 		capy.iniciar()
+		items.forEach({item => item.iniciar()})
 		puntuacion.iniciar()
-		obstaculo1.iniciar()
-		obstaculo2.iniciar()
-		obstaculo3.iniciar()
-		tomate.iniciar()
-		naranja.iniciar()
-		limon.iniciar()
-		arcoiris.iniciar()
 		game.schedule(100, { fondo.musica().play()})
-			// fondo.musica().play().shouldLoop(true)
 		fondo.musica().shouldLoop(true)
+		fondo.bajarVolumen()
 	}
 
 	method jugar() {
+		//items.forEach({item => game.removeVisual(item)})
+		record.guardarPuntuacion()
 		game.clear()
 		self.iniciar()
 	}
@@ -71,18 +68,16 @@ object juego {
 	}
 
 	method terminar() {
-		obstaculo1.fin()
-		puntuacion.fin()
-		obstaculo2.fin()
-		obstaculo3.fin()
-		tomate.fin()
-		naranja.fin()
-		limon.fin()
-		arcoiris.fin()
+		items.forEach({item => item.fin()})
 		fondo.musica().stop()
 		fondo.resetMusica()
 	}
-
+	method subirNivel() {
+		if (puntuacion.subirNivel()){
+			items.forEach({visual => visual.subirVelocidad()})
+			puntuacion.aumentarPuntoDeGuardado()
+			}
+		}
 }
 
 object fondo {
@@ -96,7 +91,8 @@ object fondo {
 	}
 
 	method musica() = sonido
-
+	
+	method bajarVolumen(){self.musica().volume(0.1)}
 }
 
 object gameOver {
@@ -112,15 +108,15 @@ object gameOver {
 object puntuacion {
 
 	var property puntos = 0
-	var property guardar = 1000
+	var property puntoDeGuardado = 1000
 
-	method text() = puntos.toString()
+	method text() = "Puntos: " + puntos.toString()
 
 	method position() = game.at(1, game.height() - 1)
 
 	method sumarPuntos() {
 		puntos = puntos + 1
-		self.subirNivel()
+		juego.subirNivel()
 	}
 
 	method sumarPuntos(item) {
@@ -136,23 +132,31 @@ object puntuacion {
 		game.removeTickEvent("puntos")
 	}
 
-	method subirNivel() {
-		const visuales = game.allVisuals().copy()
-		visuales.remove(capy)
-		visuales.remove(self)
-		visuales.remove(vidas)
-		if (self.puntos() > guardar ){
-			guardar = guardar + 1000
-			visuales.forEach({visual => visual.subirVelocidad()})
-			}
-		}
+	method subirNivel() = self.puntos() > puntoDeGuardado
+	
+	method aumentarPuntoDeGuardado(){
+		puntoDeGuardado = puntoDeGuardado + 1000
 	}
 
+}
+
+object record {
+	const record = []
+	
+	method text() = "Record: " + self.recordMaximo().toString()
+
+	method position() = game.at(1, game.height() - 2)
+	
+	method guardarPuntuacion(){
+		record.add(puntuacion.puntos())
+	}
+	method recordMaximo() = record.max()
+}
 
 
 object vidas {
 
-	method text() = (capy.vidasExtras()).toString()
+	method text() = "Vidas: " + (capy.vidasExtras()).toString()
 
 	method position() = game.at(3, game.height() - 1)
 
