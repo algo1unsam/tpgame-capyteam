@@ -8,6 +8,7 @@ class Cosas {
 	const property image
 	var property position = 0
 	const property lista = [ naranja, limon, tomate, arcoiris, obstaculo1, obstaculo2, obstaculo3 ]
+	var property velocidadAnterior = 300
 	
 	
 	method chocar() {
@@ -17,7 +18,12 @@ class Cosas {
 
 	method mover() {
 		position = position.down(1)
-		if (position.y() == -1) position = self.posicionInicial()
+		if (position.y() == -1) {
+			position = self.posicionInicial()
+				if (self.velocidad() > self.velocidadAnterior()) {
+					self.reiniciar()
+					velocidadAnterior = velocidad}
+			}
 	}
 
 	method numeroRandom() {
@@ -26,9 +32,20 @@ class Cosas {
 	}
 	
 	method subirVelocidad(){
-		velocidad = velocidad*(1/3)
+		velocidad = velocidad*(1/2)
+	}
+		method iniciar() {
+		position = self.posicionInicial()
+		game.onTick(velocidad, "mover" + self, { self.mover()})
 	}
 
+	method fin() {
+		game.removeTickEvent("mover" + self)
+	}
+	method reiniciar(){
+		self.fin()
+		self.iniciar()
+	}
 }
 
 class Obstaculo inherits Cosas {
@@ -41,16 +58,6 @@ class Obstaculo inherits Cosas {
 		self.musica().play()
 		if (capy.estaVivo() == false) juego.perder()
 	}
-
-	method iniciar() {
-		position = self.posicionInicial()
-		game.onTick(velocidad, "moverObs" + self, { self.mover()})
-	}
-
-	method fin() {
-		game.removeTickEvent("moverObs" + self)
-	}
-
 }
 
 object obstaculo1 inherits Obstaculo(image = "tronco2.png") {
@@ -79,15 +86,6 @@ class Item inherits Cosas {
 	override method chocar() {
 		self.activarPoder()
 		position = self.posicionInicial()
-	}
-
-	method iniciar() {
-		position = self.posicionInicial()
-		game.onTick(velocidad, "mover" + self, { self.mover()})
-	}
-
-	method fin() {
-		game.removeTickEvent("mover" + self)
 	}
 
 	method puntos() = bonificacion

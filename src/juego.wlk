@@ -3,7 +3,8 @@ import carpincho.*
 import objectos.*
 
 object juego {
-
+	const visuales = []
+	
 	method configurar() {
 		game.width(5)
 		game.height(8)
@@ -82,7 +83,16 @@ object juego {
 		fondo.musica().stop()
 		fondo.resetMusica()
 	}
-
+	method subirNivel() {
+		const visuales = game.allVisuals().copy()
+		visuales.remove(capy)
+		visuales.remove(puntuacion)
+		visuales.remove(vidas)
+		if (puntuacion.subirNivel()){
+			visuales.forEach({visual => visual.subirVelocidad()})
+			puntuacion.aumentarPuntoDeGuardado()
+			}
+		}
 }
 
 object fondo {
@@ -120,7 +130,7 @@ object puntuacion {
 
 	method sumarPuntos() {
 		puntos = puntos + 1
-		self.subirNivel()
+		juego.subirNivel()
 	}
 
 	method sumarPuntos(item) {
@@ -136,17 +146,12 @@ object puntuacion {
 		game.removeTickEvent("puntos")
 	}
 
-	method subirNivel() {
-		const visuales = game.allVisuals().copy()
-		visuales.remove(capy)
-		visuales.remove(self)
-		visuales.remove(vidas)
-		if (self.puntos() > guardar ){
-			guardar = guardar + 1000
-			visuales.forEach({visual => visual.subirVelocidad()})
-			}
-		}
+	method subirNivel() = self.puntos() > guardar
+	
+	method aumentarPuntoDeGuardado(){
+		guardar = guardar + 1000
 	}
+}
 
 
 
