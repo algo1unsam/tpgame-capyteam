@@ -34,7 +34,7 @@ class Cosas {
 	method subirVelocidad(){
 		velocidad = velocidad*(1/2)
 	}
-		method iniciar() {
+	method iniciar() {
 		position = self.posicionInicial()
 		game.onTick(velocidad, "mover" + self, { self.mover()})
 	}

@@ -4,6 +4,7 @@ import objectos.*
 
 object juego {
 	const items = [tomate,naranja,limon,arcoiris,obstaculo1,obstaculo2,obstaculo3]
+	const visuales = [puntuacion, capy]
 	
 	method configurar() {
 		game.width(5)
@@ -21,7 +22,7 @@ object juego {
 		game.addVisual(obstaculo3)
 		game.addVisual(puntuacion)
 		game.addVisual(vidas)
-		
+		game.addVisual(record)
 		
 		keyboard.space().onPressDo{ self.reiniciar()}
 	    keyboard.up().onPressDo{capy.moverseArriba()}
@@ -55,9 +56,8 @@ object juego {
 	}
 
 	method jugar() {
-		//items.forEach({item => game.removeVisual(item)})
 		record.guardarPuntuacion()
-		game.clear()
+		game.clear()	
 		self.iniciar()
 	}
 
@@ -69,6 +69,7 @@ object juego {
 
 	method terminar() {
 		items.forEach({item => item.fin()})
+		puntuacion.fin()
 		fondo.musica().stop()
 		fondo.resetMusica()
 	}
@@ -141,23 +142,22 @@ object puntuacion {
 }
 
 object record {
-	const record = []
+	const puntuaciones = [0]
 	
 	method text() = "Record: " + self.recordMaximo().toString()
 
-	method position() = game.at(1, game.height() - 2)
+	method position() = game.at(1, 0)
 	
 	method guardarPuntuacion(){
-		record.add(puntuacion.puntos())
+		puntuaciones.add(puntuacion.puntos())
 	}
-	method recordMaximo() = record.max()
+	method recordMaximo() = puntuaciones.max()
 }
 
 
 object vidas {
 
 	method text() = "Vidas: " + (capy.vidasExtras()).toString()
-
 	method position() = game.at(3, game.height() - 1)
 
 }
