@@ -45,7 +45,7 @@ object capy {
 
 	method iniciar() {
 		estaVivo = true
-		vidasExtras = 1
+		vidasExtras = 2
 		position = game.at(2,1)
 	}
 

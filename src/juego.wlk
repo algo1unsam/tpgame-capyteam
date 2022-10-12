@@ -4,7 +4,8 @@ import objectos.*
 
 object juego {
 	const items = [tomate,naranja,limon,arcoiris,obstaculo1,obstaculo2,obstaculo3]
-	const visuales = [puntuacion, capy]
+	const visuales = [puntuacion, vidas, record]
+	var property nivel = 1
 	
 	method configurar() {
 		game.width(5)
@@ -12,14 +13,7 @@ object juego {
 		game.title("Capy Game")
 		game.boardGround("rio.png")
 		game.addVisual(capy)
-		game.showAttributes(capy)
-		game.addVisual(obstaculo1)
-		game.addVisual(tomate)
-		game.addVisual(obstaculo2)
-		game.addVisual(naranja)
-		game.addVisual(limon)
-		game.addVisual(arcoiris)
-		game.addVisual(obstaculo3)
+		items.forEach({item => game.addVisual(item)})
 		game.addVisual(puntuacion)
 		game.addVisual(vidas)
 		game.addVisual(record)
@@ -49,6 +43,7 @@ object juego {
 		self.configurar()
 		capy.iniciar()
 		items.forEach({item => item.iniciar()})
+		items.forEach({item => item.reiniciarVelocidad()})
 		puntuacion.iniciar()
 		game.schedule(100, { fondo.musica().play()})
 		fondo.musica().shouldLoop(true)
@@ -77,18 +72,38 @@ object juego {
 		if (puntuacion.subirNivel()){
 			items.forEach({visual => visual.subirVelocidad()})
 			puntuacion.aumentarPuntoDeGuardado()
+			nivel += 1
 			}
+		//self.cambiarEscenario()
 		}
+	method cambiarEscenario(){
+		if (nivel > 3)
+			game.clear()
+			game.boardGround("calle.png")
+	}
 }
 
 object fondo {
 
 	var sonido = game.sound("musica4.mp3")
 
-	method image() = "rio.png"
-
 	method resetMusica() {
 		sonido = game.sound("musica4.mp3")
+	}
+
+	method musica() = sonido
+	
+	method bajarVolumen(){self.musica().volume(0.1)}
+}
+
+object fondo2 {
+
+	var sonido = game.sound("musica3.mp3")
+
+	method image() = "calle.png"
+
+	method resetMusica() {
+		sonido = game.sound("musica3.mp3")
 	}
 
 	method musica() = sonido
@@ -109,7 +124,7 @@ object gameOver {
 object puntuacion {
 
 	var property puntos = 0
-	var property puntoDeGuardado = 1000
+	var property puntoDeGuardado = 100
 
 	method text() = "Puntos: " + puntos.toString()
 
@@ -136,7 +151,7 @@ object puntuacion {
 	method subirNivel() = self.puntos() > puntoDeGuardado
 	
 	method aumentarPuntoDeGuardado(){
-		puntoDeGuardado = puntoDeGuardado + 1000
+		puntoDeGuardado += puntoDeGuardado
 	}
 
 }
