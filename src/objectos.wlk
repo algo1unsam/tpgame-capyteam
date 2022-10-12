@@ -46,6 +46,10 @@ class Cosas {
 		self.fin()
 		self.iniciar()
 	}
+	method reiniciarVelocidad(){
+		velocidad = 300
+		velocidadAnterior = 300
+	}
 }
 
 class Obstaculo inherits Cosas {
