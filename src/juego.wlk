@@ -11,7 +11,7 @@ object juego {
 		game.width(5)
 		game.height(8)
 		game.title("Capy Game")
-		game.boardGround("rio.png")
+		game.addVisual(fondo)
 		game.addVisual(capy)
 		items.forEach({item => game.addVisual(item)})
 		game.addVisual(puntuacion)
@@ -74,23 +74,28 @@ object juego {
 			puntuacion.aumentarPuntoDeGuardado()
 			nivel += 1
 			}
-		//self.cambiarEscenario()
+		self.cambiarEscenario()
 		}
 	method cambiarEscenario(){
 		if (nivel > 3)
-			game.clear()
-			game.boardGround("calle.png")
+			//game.clear()
+			fondo.cambiarImagenCiudad()
+			
 	}
 }
 
 object fondo {
 
 	var sonido = game.sound("musica4.mp3")
-
+	var property image = "rio.png"
+	
+	method position() = game.at(0,0)
+	
 	method resetMusica() {
 		sonido = game.sound("musica4.mp3")
 	}
-
+	method cambiarImagenCiudad() {image = "calle.png"}
+	
 	method musica() = sonido
 	
 	method bajarVolumen(){self.musica().volume(0.1)}

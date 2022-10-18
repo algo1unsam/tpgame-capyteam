@@ -5,7 +5,7 @@ import juego.*
 class Cosas {
 
 	var property velocidad = 300
-	const property image
+	var property image
 	var property position = 0
 	const property lista = [ naranja, limon, tomate, arcoiris, obstaculo1, obstaculo2, obstaculo3 ]
 	var property velocidadAnterior = 300
@@ -65,16 +65,32 @@ class Obstaculo inherits Cosas {
 }
 
 object obstaculo1 inherits Obstaculo(image = "tronco2.png") {
+	
+	method cambiarImagenCiudad() {image = "cono.png"}
 
 }
 
 object obstaculo2 inherits Obstaculo(image = "roca2.png") {
+	method cambiarImagenCiudad() {image = "basura.png"}
 
 }
 
 object obstaculo3 inherits Obstaculo(image = "barril.png") {
+	method cambiarImagenCiudad() {image = "fuego.png"}
 
 }
+
+object obstaculo4 inherits Obstaculo(image = "rana.png") {
+	method cambiarImagenCiudad() {image = "muro.png"}
+}
+
+object obstaculo5 inherits Obstaculo(image = "perro.png") {
+	method cambiarImagenCiudad() {image = "tapa.png"}
+
+}
+
+
+
 
 class Item inherits Cosas {
 
