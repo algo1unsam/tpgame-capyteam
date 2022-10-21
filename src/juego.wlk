@@ -93,7 +93,7 @@ object juego {
 	method agregarObjetos(){
 		indice += 1
 		if (indice == 2){
-			indice = -1
+			indice = 0
 		}
 		itemsProxNivel.get(indice).iniciar()
 	    return itemsProxNivel.get(indice)
@@ -111,7 +111,6 @@ object fondo {
 	var property image = listaImagenes.get(0)
 	
 	method reiniciar() {
-		self.terminarMusica()
 		image = listaImagenes.get(0)
 		self.reiniciarMusica()
 		indice = 1
