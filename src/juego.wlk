@@ -20,7 +20,7 @@ object juego {
 		items.forEach({item => game.addVisual(item)})
 		visuales.forEach({visual => game.addVisual(visual)})
 		
-		keyboard.space().onPressDo{ self.reiniciar()}
+		keyboard.space().onPressDo{self.reiniciar()}
 	    keyboard.up().onPressDo{capy.moverseArriba()}
 	    keyboard.down().onPressDo{capy.moverseAbajo()}
 		keyboard.left().onPressDo{ capy.moverseIzquierda()}
@@ -64,7 +64,7 @@ object juego {
 		itemsAgregados.forEach({item => item.fin()})
 		itemsAgregados.clear()
 		puntuacion.fin()
-		fondo.musica().stop()
+		fondo.terminarMusica()
 		fondo.reiniciarMusica()
 	}
 	method subirNivel() {
@@ -110,9 +110,12 @@ object fondo {
 	var indice = 1
 	var property image = listaImagenes.get(0)
 	
-	method reiniciar() {image = listaImagenes.get(0)
+	method reiniciar() {
+		self.terminarMusica()
+		image = listaImagenes.get(0)
 		self.reiniciarMusica()
 		indice = 1
+		
 	}
 	method position() = game.at(0,0)
 
@@ -143,6 +146,10 @@ object fondo {
 	method musicaIniciar(){
 		game.schedule(100, { self.musica().play()})
 		self.musica().shouldLoop(true)
+	}
+	
+	method terminarMusica(){
+		self.musica().stop()
 	}
 }
 
