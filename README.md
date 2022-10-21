@@ -7,7 +7,6 @@
 
 
 ## Capturas
-(agregar)
 
 ![](capyaventuras1.png) ![](capyaventuras3.png) ![](capyaventuras2.png) ![](capyaventuras4.png) 
  
