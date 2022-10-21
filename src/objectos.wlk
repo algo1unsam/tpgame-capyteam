@@ -59,24 +59,17 @@ class Cosas {
 }
 
 class Obstaculo inherits Cosas {
-
+	var indice = 1
+	const property listaImagenes
 	method musica() = game.sound("golpe.mp3")
-
+	
 	override method chocar() {
 		capy.pierdeUnaVida()
 		position = self.posicionInicial()
 		self.musica().play()
 		if (capy.estaVivo() == false) juego.perder()
 	}
-
-}
-
-object obstaculo1 inherits Obstaculo(image = "tronco2.png") {
-
-	var indice = 1
-	var listaImagenes = [ "tronco2.png", "tapa.png", "senial.png" ]
-
-	method cambiarImagen() {
+		method cambiarImagen() {
 		image = listaImagenes.get(indice)
 		indice += 1
 		if (indice == 3) {
@@ -88,66 +81,28 @@ object obstaculo1 inherits Obstaculo(image = "tronco2.png") {
 		image = listaImagenes.get(0)
 		indice = 1
 	}
+	
+	override method iniciar() {
+		self.reiniciarImagen()
+		super()
+		
+	}
+	
+}
+
+object obstaculo1 inherits Obstaculo(image = "tronco2.png", listaImagenes = [ "tronco2.png", "tapa.png", "senial.png" ]) {
 
 }
 
-object obstaculo2 inherits Obstaculo(image = "roca2.png") {
-
-	var indice = 1
-	var listaImagenes = [ "roca2.png", "auto1.png", "casa.png" ]
-
-	method cambiarImagen() {
-		image = listaImagenes.get(indice)
-		indice += 1
-		if (indice == 3) {
-			indice = 0
-		}
-	}
-
-	method reiniciarImagen() {
-		image = listaImagenes.get(0)
-		indice = 1
-	}
+object obstaculo2 inherits Obstaculo(image = "roca2.png", listaImagenes = [ "roca2.png", "auto1.png", "casa.png" ]) {
 
 }
 
-object obstaculo3 inherits Obstaculo(image = "barril.png") {
-
-	var indice = 1
-	var listaImagenes = [ "barril.png", "fuego.png", "cerdo.png" ]
-
-	method cambiarImagen() {
-		image = listaImagenes.get(indice)
-		indice += 1
-		if (indice == 3) {
-			indice = 0
-		}
-	}
-
-	method reiniciarImagen() {
-		image = listaImagenes.get(0)
-		indice = 1
-	}
+object obstaculo3 inherits Obstaculo(image = "barril.png", listaImagenes = [ "barril.png", "fuego.png", "cerdo.png" ]) {
 
 }
 
-object obstaculo4 inherits Obstaculo(image = "rana.png") {
-
-	var indice = 1
-	var listaImagenes = [ "rana.png", "muro.png", "arbusto.png" ]
-
-	method cambiarImagen() {
-		image = listaImagenes.get(indice)
-		indice += 1
-		if (indice == 3) {
-			indice = 0
-		}
-	}
-
-	method reiniciarImagen() {
-		image = listaImagenes.get(0)
-		indice = 1
-	}
+object obstaculo4 inherits Obstaculo(image = "rana.png", listaImagenes = [ "rana.png", "muro.png", "arbusto.png" ]) {
 
 	override method fin() {
 		super()
@@ -156,24 +111,8 @@ object obstaculo4 inherits Obstaculo(image = "rana.png") {
 
 }
 
-object obstaculo5 inherits Obstaculo(image = "perro.png") {
-
-	var indice = 1
-	var listaImagenes = [ "perro.png", "pepita.png", "arbol.png" ]
-
-	method cambiarImagen() {
-		image = listaImagenes.get(indice)
-		indice += 1
-		if (indice == 3) {
-			indice = 0
-		}
-	}
-
-	method reiniciarImagen() {
-		image = listaImagenes.get(0)
-		indice = 1
-	}
-
+object obstaculo5 inherits Obstaculo(image = "perro.png", listaImagenes = [ "perro.png", "pepita.png", "arbol.png" ]) {
+	
 	override method fin() {
 		super()
 		game.removeVisual(self)

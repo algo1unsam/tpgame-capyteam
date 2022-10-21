@@ -65,7 +65,7 @@ object juego {
 		itemsAgregados.clear()
 		puntuacion.fin()
 		fondo.musica().stop()
-		fondo.resetMusica()
+		fondo.reiniciarMusica()
 	}
 	method subirNivel() {
 		if (puntuacion.subirNivel()){
@@ -111,7 +111,7 @@ object fondo {
 	var property image = listaImagenes.get(0)
 	
 	method reiniciar() {image = listaImagenes.get(0)
-		sonido = game.sound("musica4.mp3")
+		self.reiniciarMusica()
 		indice = 1
 	}
 	method position() = game.at(0,0)
@@ -123,6 +123,9 @@ object fondo {
 			indice = 0
 		}
 		
+	}
+	method reiniciarMusica(){
+		sonido = game.sound("musica4.mp3")
 	}
 	
 	method musica() = sonido
