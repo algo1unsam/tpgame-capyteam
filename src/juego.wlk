@@ -1,6 +1,6 @@
 import wollok.game.*
 import carpincho.*
-import objectos.*
+import objetos.*
 
 object juego {
 	const items = [tomate,naranja,limon,arcoiris,obstaculo1,obstaculo2,obstaculo3]

@@ -102,7 +102,7 @@ object obstaculo3 inherits Obstaculo(image = "barril.png", listaImagenes = [ "ba
 
 }
 
-object obstaculo4 inherits Obstaculo(image = "rana.png", listaImagenes = [ "muro.png", "arbusto.png", "rana.png" ]) {
+object obstaculo4 inherits Obstaculo(image = "rana.png", listaImagenes = [ "cono.png", "arbusto.png", "rana.png" ]) {
 
 	override method fin() {
 		super()
