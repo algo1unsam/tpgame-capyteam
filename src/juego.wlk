@@ -32,9 +32,7 @@ object juego {
 	}
 
 	method reiniciar() {
-		fondo.resetMusica()
 		fondo.reiniciar()
-		
 		nivel.reiniciarNivel()
 		
 		self.jugar()
@@ -46,9 +44,7 @@ object juego {
 		items.forEach({item => item.iniciar()})
 		items.forEach({item => item.reiniciarVelocidad()})
 		puntuacion.iniciar()
-		fondo.bajarVolumen()
-		game.schedule(100, { fondo.musica().play()})
-		fondo.musica().shouldLoop(true)
+		fondo.musicaIniciar()
 	}
 
 	method jugar() {
@@ -82,7 +78,6 @@ object juego {
 		}
 	method cambiarEscenario(){
 		if (nivel.subimos()){
-			//game.clear()
 			fondo.cambiarImagen()
 			obstaculos.forEach({item => item.cambiarImagen()})
 			
@@ -97,6 +92,9 @@ object juego {
 	}
 	method agregarObjetos(){
 		indice += 1
+		if (indice == 2){
+			indice = -1
+		}
 		itemsProxNivel.get(indice).iniciar()
 	    return itemsProxNivel.get(indice)
 	}
@@ -117,10 +115,7 @@ object fondo {
 		indice = 1
 	}
 	method position() = game.at(0,0)
-	
-	method resetMusica() {
-		sonido = game.sound("musica4.mp3")
-	}
+
 	method cambiarImagen() {
 		image = listaImagenes.get(indice)
 		indice+= 1
@@ -141,21 +136,11 @@ object fondo {
 		self.cambiarMusica()
 	}
 	method chocar(){}
-}
-
-object fondo2 {
-
-	var sonido = game.sound("musica3.mp3")
-
-	method image() = "calle.png"
-
-	method resetMusica() {
-		sonido = game.sound("musica3.mp3")
-	}
-
-	method musica() = sonido
 	
-	method bajarVolumen(){self.musica().volume(0.1)}
+	method musicaIniciar(){
+		game.schedule(100, { self.musica().play()})
+		self.musica().shouldLoop(true)
+	}
 }
 
 object gameOver {
@@ -253,6 +238,6 @@ object nivel{
 	}
 	method reiniciarNivel(){
 		nivel = 1
+		indice = 0
 	}
 }
-
