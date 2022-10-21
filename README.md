@@ -7,8 +7,12 @@
 
 
 ## Capturas
-
 (agregar)
+
+![](capyaventuras1.png) ![](capyaventuras3.png) ![](capyaventuras2.png) ![](capyaventuras4.png) 
+ 
+
+
 
 ## Reglas de Juego / Instrucciones
 
@@ -32,4 +36,4 @@ Poderes de las frutitas (ademas de ser comida de capy):
 
 - Algoritmos1/Unsam
 - Versión de wollok 3.0
-- Una vez terminado, no tenemos problemas en que el repositorio sea público / queremos manternerlo privado
+- Una vez terminado, no tenemos problemas en que el repositorio sea público
