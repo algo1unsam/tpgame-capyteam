@@ -7,7 +7,7 @@ object juego {
 	var property itemsProxNivel = [obstaculo4,obstaculo5]
 	const obstaculos = [obstaculo1,obstaculo2,obstaculo3,obstaculo4,obstaculo5]
 	const visuales = [puntuacion, vidas, record, nivel]
-	const itemsAgregados = []
+	const itemsAgregados = #{}
 	var indice = -1
 	
 	
