@@ -32,7 +32,7 @@ object juego {
 	}
 
 	method reiniciar() {
-		fondo.terminarMusica()
+		
 		fondo.reiniciarMusica()
 		fondo.reiniciar()
 		nivel.reiniciarNivel()
@@ -56,6 +56,7 @@ object juego {
 	}
 
 	method perder() {
+		fondo.terminarMusica()
 		game.addVisual(gameOver)
 		gameOver.musica().play()
 		self.terminar()
