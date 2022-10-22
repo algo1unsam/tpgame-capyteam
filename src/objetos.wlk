@@ -98,7 +98,7 @@ object obstaculo2 inherits Obstaculo(image = "roca2.png", listaImagenes = [ "roc
 
 }
 
-object obstaculo3 inherits Obstaculo(image = "barril.png", listaImagenes = [ "barril.png", "fuego.png", "cerdo.png" ]) {
+object obstaculo3 inherits Obstaculo(image = "barril.png", listaImagenes = [ "barril.png", "fuego_2.png", "cerdo.png" ]) {
 
 }
 
