@@ -32,6 +32,8 @@ object juego {
 	}
 
 	method reiniciar() {
+		fondo.terminarMusica()
+		fondo.reiniciarMusica()
 		fondo.reiniciar()
 		nivel.reiniciarNivel()
 		
