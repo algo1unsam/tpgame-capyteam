@@ -190,13 +190,4 @@ object arcoiris inherits Item(image = "arcoiris2.png", bonificacion = 0) {
 
 }
 
-/*TODO: Crear items
- * Naranja de oro (limon) = 100 puntos
- * Naranja doble (arcoiris) = Duplica los puntos 
- * Naranja revividora (tomate) = Te da una vida extra
- * Naranja random () = Te da un poder random
- *  etc
- * 
- * 
- * 
- */
+
