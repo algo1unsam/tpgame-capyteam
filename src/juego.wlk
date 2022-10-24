@@ -170,7 +170,7 @@ object gameOver {
 object puntuacion {
 
 	var property puntos = 0
-	var property puntoDeGuardado = 100
+	var property puntoDeGuardado = 200
 
 	method text() = "Puntos: " + puntos.toString()
 
