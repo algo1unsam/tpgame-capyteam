@@ -128,11 +128,13 @@
                 <tags>categoryTag:Control de versiones (Colaboraci&#xf3;n)</tags>
               </children>
             </children>
-            <children xsi:type="basic:PartSashContainer" xmi:id="_hq-ZxEmlEe2DX4aTpRhWqw" containerData="5500" selectedElement="_hq-ZxUmlEe2DX4aTpRhWqw">
+            <children xsi:type="basic:PartSashContainer" xmi:id="_hq-ZxEmlEe2DX4aTpRhWqw" containerData="5500" selectedElement="_hq-ZxkmlEe2DX4aTpRhWqw">
               <children xsi:type="advanced:Placeholder" xmi:id="_hq-ZxUmlEe2DX4aTpRhWqw" elementId="org.eclipse.ui.editorss" containerData="8000" ref="_3Jvd4EmkEe24_4HsGQZYSA"/>
               <children xsi:type="basic:PartStack" xmi:id="_hq-ZxkmlEe2DX4aTpRhWqw" elementId="top2" containerData="2000" selectedElement="_5-7F0EmlEe2DX4aTpRhWqw">
                 <tags>org.eclipse.e4.secondaryDataStack</tags>
                 <tags>General</tags>
+                <tags>Wollok Diagrams</tags>
+                <tags>active</tags>
                 <children xsi:type="advanced:Placeholder" xmi:id="_hq-Zx0mlEe2DX4aTpRhWqw" elementId="org.eclipse.team.ui.GenericHistoryView" ref="_3J4n0UmkEe24_4HsGQZYSA" closeable="true">
                   <tags>View</tags>
                   <tags>categoryTag:Control de versiones (Colaboraci&#xf3;n)</tags>
@@ -151,6 +153,14 @@
                   <tags>categoryTag:General</tags>
                 </children>
                 <children xsi:type="advanced:Placeholder" xmi:id="_8GJRAEmlEe2DX4aTpRhWqw" elementId="org.eclipse.ui.views.ContentOutline" toBeRendered="false" ref="_3J518EmkEe24_4HsGQZYSA" closeable="true">
+                  <tags>View</tags>
+                  <tags>categoryTag:General</tags>
+                </children>
+                <children xsi:type="advanced:Placeholder" xmi:id="_bBWjgFPvEe2vkrqWGj3aUA" elementId="org.uqbar.project.wollok.ui.diagrams.object" ref="_3J5O4kmkEe24_4HsGQZYSA" closeable="true">
+                  <tags>View</tags>
+                  <tags>categoryTag:Wollok Diagrams</tags>
+                </children>
+                <children xsi:type="advanced:Placeholder" xmi:id="_b-e6IFPvEe2vkrqWGj3aUA" elementId="org.eclipse.ui.console.ConsoleView" ref="_3J4AwEmkEe24_4HsGQZYSA" closeable="true">
                   <tags>View</tags>
                   <tags>categoryTag:General</tags>
                 </children>
@@ -199,10 +209,9 @@
       <tags>categoryTag:Ayuda</tags>
     </sharedElements>
     <sharedElements xsi:type="advanced:Area" xmi:id="_3Jvd4EmkEe24_4HsGQZYSA" elementId="org.eclipse.ui.editorss" selectedElement="_3Jvd4UmkEe24_4HsGQZYSA">
-      <children xsi:type="basic:PartStack" xmi:id="_3Jvd4UmkEe24_4HsGQZYSA" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_1huhwEmlEe2DX4aTpRhWqw">
+      <children xsi:type="basic:PartStack" xmi:id="_3Jvd4UmkEe24_4HsGQZYSA" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_jGbrIEmlEe2DX4aTpRhWqw">
         <tags>org.eclipse.e4.primaryDataStack</tags>
         <tags>EditorStack</tags>
-        <tags>active</tags>
         <children xsi:type="basic:Part" xmi:id="_jGbrIEmlEe2DX4aTpRhWqw" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="carpincho.wlk" iconURI="platform:/plugin/org.uqbar.project.wollok.ui/icons/file_wlk.png" closeable="true">
           <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.uqbar.project.wollok.WollokDsl&quot; name=&quot;carpincho.wlk&quot; partName=&quot;carpincho.wlk&quot; title=&quot;carpincho.wlk&quot; tooltip=&quot;C:\Users\matia\Algoritmos\SubwayCapy\src\carpincho.wlk&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; uri=&quot;file:/C:/Users/matia/Algoritmos/SubwayCapy/src/carpincho.wlk&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;0&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
@@ -216,18 +225,16 @@
           <tags>org.uqbar.project.wollok.WollokDsl</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_0QXAgEmlEe2DX4aTpRhWqw" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="objectos.wlk" iconURI="platform:/plugin/org.uqbar.project.wollok.ui/icons/file_wlk.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.uqbar.project.wollok.WollokDsl&quot; name=&quot;objectos.wlk&quot; partName=&quot;objectos.wlk&quot; title=&quot;objectos.wlk&quot; tooltip=&quot;C:\Users\matia\Algoritmos\SubwayCapy\src\objectos.wlk&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; uri=&quot;file:/C:/Users/matia/Algoritmos/SubwayCapy/src/objectos.wlk&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;0&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.uqbar.project.wollok.WollokDsl&quot; name=&quot;objectos.wlk&quot; partName=&quot;objectos.wlk&quot; title=&quot;objectos.wlk&quot; tooltip=&quot;C:\Users\matia\Algoritmos\SubwayCapy\src\objectos.wlk&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; uri=&quot;file:/C:/Users/matia/Algoritmos/SubwayCapy/src/objectos.wlk&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>removeOnHide</tags>
           <tags>org.uqbar.project.wollok.WollokDsl</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_1huhwEmlEe2DX4aTpRhWqw" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="principal.wpgm" iconURI="platform:/plugin/org.uqbar.project.wollok.ui/icons/file_wlk.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.uqbar.project.wollok.WollokDsl&quot; name=&quot;principal.wpgm&quot; partName=&quot;principal.wpgm&quot; title=&quot;principal.wpgm&quot; tooltip=&quot;C:\Users\matia\Algoritmos\SubwayCapy\src\principal.wpgm&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; uri=&quot;file:/C:/Users/matia/Algoritmos/SubwayCapy/src/principal.wpgm&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;137&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.uqbar.project.wollok.WollokDsl&quot; name=&quot;principal.wpgm&quot; partName=&quot;principal.wpgm&quot; title=&quot;principal.wpgm&quot; tooltip=&quot;C:\Users\matia\Algoritmos\SubwayCapy\src\principal.wpgm&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; uri=&quot;file:/C:/Users/matia/Algoritmos/SubwayCapy/src/principal.wpgm&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;136&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>removeOnHide</tags>
           <tags>org.uqbar.project.wollok.WollokDsl</tags>
-          <tags>active</tags>
-          <tags>activeOnClose</tags>
         </children>
       </children>
     </sharedElements>
@@ -241,7 +248,7 @@
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
       </menus>
-      <toolbar xmi:id="_3tBxIUmkEe24_4HsGQZYSA" elementId="org.eclipse.ui.views.ProblemView"/>
+      <toolbar xmi:id="_3tBxIUmkEe24_4HsGQZYSA" elementId="org.eclipse.ui.views.ProblemView" visible="false"/>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_3J4AwEmkEe24_4HsGQZYSA" elementId="org.eclipse.ui.console.ConsoleView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Consola" iconURI="platform:/plugin/org.eclipse.ui.console/icons/full/cview16/console_view.png" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="org.eclipse.ui.internal.console.ConsoleView"/>
@@ -300,8 +307,14 @@
     <sharedElements xsi:type="basic:Part" xmi:id="_3J5O4kmkEe24_4HsGQZYSA" elementId="org.uqbar.project.wollok.ui.diagrams.object" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Diagrama Din&#xe1;mico" iconURI="platform:/plugin/org.uqbar.project.wollok.ui.diagrams/icons/object_diagram_icon3.png" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="org.uqbar.project.wollok.ui.diagrams.classes.WollokDslExecutableExtensionFactory"/>
       <persistedState key="originalCompatibilityViewBundle" value="org.uqbar.project.wollok.ui.diagrams"/>
+      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view/>"/>
       <tags>View</tags>
       <tags>categoryTag:Wollok Diagrams</tags>
+      <menus xmi:id="_bB2SwFPvEe2vkrqWGj3aUA" elementId="org.uqbar.project.wollok.ui.diagrams.object">
+        <tags>ViewMenu</tags>
+        <tags>menuContribution:menu</tags>
+      </menus>
+      <toolbar xmi:id="_bB2SwVPvEe2vkrqWGj3aUA" elementId="org.uqbar.project.wollok.ui.diagrams.object" visible="false"/>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_3J518EmkEe24_4HsGQZYSA" elementId="org.eclipse.ui.views.ContentOutline" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Esquema" iconURI="platform:/plugin/org.eclipse.ui.views/icons/full/eview16/outline_co.png" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="org.eclipse.ui.views.contentoutline.ContentOutline"/>
@@ -351,6 +364,8 @@
       <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view CommonNavigator.LINKING_ENABLED=&quot;0&quot; org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets=&quot;0&quot;>&#xD;&#xA;&lt;lastRecentlyUsedFilters/>&#xD;&#xA;&lt;/view>"/>
       <tags>View</tags>
       <tags>categoryTag:General</tags>
+      <tags>active</tags>
+      <tags>activeOnClose</tags>
       <menus xmi:id="_5_S5QEmlEe2DX4aTpRhWqw" elementId="org.eclipse.ui.navigator.ProjectExplorer">
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
@@ -375,7 +390,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_3EqJkEmkEe24_4HsGQZYSA" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_VD2hMEmlEe2DX4aTpRhWqw" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Imprimir" command="_2aubyUmkEe24_4HsGQZYSA"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_WuEJYFPvEe2vkrqWGj3aUA" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Imprimir" command="_2aubyUmkEe24_4HsGQZYSA"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_3KtuQEmkEe24_4HsGQZYSA" elementId="org.eclipse.search.searchActionSet">
         <tags>Draggable</tags>
@@ -389,7 +404,10 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_3EqwpUmkEe24_4HsGQZYSA" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_VD7ZsEmlEe2DX4aTpRhWqw" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Fijar editor" type="Check" command="_2atNoUmkEe24_4HsGQZYSA"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_WuIa0lPvEe2vkrqWGj3aUA" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Fijar editor" enabled="false" type="Check" command="_2atNoUmkEe24_4HsGQZYSA"/>
+      </children>
+      <children xsi:type="menu:ToolBar" xmi:id="_XC04cFPvEe2vkrqWGj3aUA" elementId="org.uqbar.project.wollok.WollokDsl">
+        <tags>Draggable</tags>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_3EqwpkmkEe24_4HsGQZYSA" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -2080,7 +2098,7 @@
   <addons xmi:id="_2Yiqh0mkEe24_4HsGQZYSA" elementId="MinMax Addon" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.MinMaxAddon"/>
   <addons xmi:id="_2YiqiEmkEe24_4HsGQZYSA" elementId="org.eclipse.ui.workbench.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
   <addons xmi:id="_2YsbcEmkEe24_4HsGQZYSA" elementId="SplitterAddon" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.splitteraddon.SplitterAddon"/>
-  <addons xmi:id="_U38MIUmlEe2DX4aTpRhWqw" elementId="org.eclipse.ui.ide.addon.0" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
+  <addons xmi:id="_IYS0IKimEeS11vbz3f9ezw" elementId="org.eclipse.ui.ide.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
   <addons xmi:id="_dz0JgGOlEeSMMaPQU2nlzw" elementId="org.eclipse.ui.ide.application.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.ui.ide.application/org.eclipse.ui.internal.ide.application.addons.ModelCleanupAddon"/>
   <categories xmi:id="_2anuEEmkEe24_4HsGQZYSA" elementId="org.eclipse.team.ui.category.team" name="Control de versiones (Colaboraci&#xf3;n)" description="Acciones aplicables cuando se trabaja con un sistema de control de versiones"/>
   <categories xmi:id="_2anuEUmkEe24_4HsGQZYSA" elementId="org.eclipse.ui.category.views" name="Vistas" description="Comandos de apertura de vistas"/>

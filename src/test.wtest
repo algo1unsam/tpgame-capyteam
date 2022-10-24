@@ -1,7 +1,7 @@
 import juego.*
 import carpincho.*
 import objetos.*
-
+import wollok.game.*
 
 
 test "Capy esta vivo"{
@@ -18,12 +18,10 @@ test "Capy pierde una vida"{
 	capy.iniciar()
 	capy.pierdeUnaVida()
 	
-	
 	assert.that(capy.estaVivo())
 	
 	
 }
-
 
 test "Inicia nuevo obstaculo"{
 	
@@ -35,10 +33,34 @@ test "Subir de nivel aumenta la velocidad"{
 	
 	obstaculo1.subirVelocidad()
 	
+	
 	assert.equals(240 , obstaculo1.velocidad())
 }
 
+test "Sumamos puntos agarrando una naranja"{
+	
+	puntuacion.sumarPuntos(naranja)
+	
+	
+	assert.equals(10, puntuacion.puntos())	
+}
 
+test "Subimos 1 nivel"{
+	
+	nivel.subirNivel()
+	
+	
+	assert.equals(2 , nivel.nivel())	
+	
+}
 
-
-
+test "Reiniciamos niveles"{
+	
+	nivel.subirNivel()
+	nivel.subirNivel()
+	nivel.reiniciarNivel()
+	
+	
+	assert.equals(1, nivel.nivel())
+	
+}
