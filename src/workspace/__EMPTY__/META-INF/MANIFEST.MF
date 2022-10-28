@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
-Automatic-Module-Name: SubwayCapys
+Automatic-Module-Name: __EMPTY__
 Bundle-ManifestVersion: 2
-Bundle-Name: SubwayCapys
+Bundle-Name: __EMPTY__
 Bundle-Vendor: My Company
 Bundle-Version: 1.0.0.qualifier
-Bundle-SymbolicName: SubwayCapys; singleton:=true
+Bundle-SymbolicName: __EMPTY__; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: com.ibm.icu,
  org.eclipse.xtext,

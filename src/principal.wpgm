@@ -1,0 +1,9 @@
+import juego.*
+import wollok.game.*
+import carpincho.*
+import objetos.*
+
+program SubwayCapys{
+	juego.iniciar()
+	game.start()
+}
