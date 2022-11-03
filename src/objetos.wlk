@@ -55,7 +55,11 @@ class Cosas {
 		velocidad = 300
 		velocidadAnterior = 300
 	}
-
+	
+	method iniciarYReiniciarVel(){
+		self.iniciar()
+		self.reiniciarVelocidad()
+	}
 }
 
 class Obstaculo inherits Cosas {

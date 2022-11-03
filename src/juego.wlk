@@ -39,8 +39,7 @@ object juego {
 	method iniciar() {
 		self.configurar()
 		capy.iniciar()
-		items.forEach({ item => item.iniciar()})
-		items.forEach({ item => item.reiniciarVelocidad()})
+		items.forEach({ item => item.iniciarYReiniciarVel()})
 		puntuacion.iniciar()
 		fondo.musicaIniciar()
 	}
